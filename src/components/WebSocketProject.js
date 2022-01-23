@@ -23,6 +23,7 @@ const WebSocketProject = () => {
     const wsConnect = (username) => {
         try {
             device.setWebSocket(new WebSocket(process.env.REACT_APP_API_URL_WS))
+            //device.setWebSocket(new WebSocket('wss://srserver-gqfbk.ondigitalocean.app'))
             //device.setWebSocket(new WebSocket('ws://localhost:5000'))
 
             device.webSocket.onopen = () => {
