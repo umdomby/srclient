@@ -25,6 +25,7 @@ const WebSocketProject = () => {
             device.setWebSocket(new WebSocket(process.env.REACT_APP_API_URL_WS))
             device.webSocket.onopen = () => {
                 device.webSocket.send(JSON.stringify({
+                    id: '1',
                     username: username,
                     method: "connection",
                 }))
@@ -46,17 +47,17 @@ const WebSocketProject = () => {
                     switch (msg.method) {
                         case "connection":
                             console.log(`пользователь ${msg.username} присоединился`)
-                            console.log(msg.txt)
-                            device.setDegreegoback(msg.degreegoback)
-                            device.setDegreeleftright(msg.degreeleftright)
-                            device.setDelaycommand(msg.delaycommand)
-                            device.setAccel(msg.accel)
-                            device.setLang(msg.languages)
-                            console.log("device.degreegoback: " + device.degreegoback)
-                            console.log("device.degreeleftright: " + device.degreeleftright)
-                            console.log("device.delaycommand: " + device.delaycommand)
-                            console.log("device.accel: " + device.accel)
-                            console.log("device.languages: " + device.lang)
+                            //console.log(msg.txt)
+                            // device.setDegreegoback(msg.degreegoback)
+                            // device.setDegreeleftright(msg.degreeleftright)
+                            // device.setDelaycommand(msg.delaycommand)
+                            // device.setAccel(msg.accel)
+                            // device.setLang(msg.languages)
+                            // console.log("device.degreegoback: " + device.degreegoback)
+                            // console.log("device.degreeleftright: " + device.degreeleftright)
+                            // console.log("device.delaycommand: " + device.delaycommand)
+                            // console.log("device.accel: " + device.accel)
+                            // console.log("device.languages: " + device.lang)
                             break
                         case "online":
                             console.log(`online`)
@@ -89,6 +90,7 @@ const WebSocketProject = () => {
                         case "messages":
                             console.log("message "+ msg.message + "  message2 " + msg.message2)
                             setMessagesMongo(msg.messages)
+
                             // for (var i in msg.clientsNoRepeatUsers){
                             //     console.log(msg.clientsNoRepeatUsers[i])
                             // }
