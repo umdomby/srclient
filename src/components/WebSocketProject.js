@@ -23,8 +23,8 @@ const WebSocketProject = () => {
     const wsConnect = (username) => {
         try {
             device.setWebSocket(new WebSocket(process.env.REACT_APP_API_URL_WS))
-            //device.setWebSocket(new WebSocket('wss://srserver-gqfbk.ondigitalocean.app'))
-            //device.setWebSocket(new WebSocket('ws://localhost:5000'))
+            //device.setWebSocket(new WebSocket('wss://srserver-gqfbk.ondigitalocean.app/ws'))
+            //device.setWebSocket(new WebSocket('ws://localhost:5000/ws'))
 
             device.webSocket.onopen = () => {
                 device.webSocket.send(JSON.stringify({
@@ -43,8 +43,8 @@ const WebSocketProject = () => {
                     .replace(/\\b/g, "\\b")
                     .replace(/\\f/g, "\\f");
                 // remove non-printable and other non-valid JSON chars
-                s = s.replace(/[\u0000-\u0019]+/g,"");
-                let msg = JSON.parse(s)
+                let msg = s.replace(/[\u0000-\u0019]+/g,"");
+                //let msg = JSON.parse(s)
 
                 if(device.webSocket.readyState !== device.webSocket.CLOSED && device.webSocket.readyState !== device.webSocket.CLOSING) {
                     switch (msg.method) {
