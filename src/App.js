@@ -28,14 +28,15 @@ function App() {
 
   return (
       <BrowserRouter>
-          <Header />e
+          <Header />
           <Row>
-              <Col span={18} push={6}>
-                  <AppRouter />
-              </Col>
-              <Col span={6} pull={18}>
+              <Col style={{maxWidth: '20%', minWidth: '300px'}}>
                   <NavBarLeft />
               </Col>
+              <Col style={{maxWidth: '80%', minWidth: '300px'}}>
+                  <AppRouter />
+              </Col>
+
           </Row>
       </BrowserRouter>
   );

@@ -33,7 +33,7 @@ const Auth = observer(() => {
 
     return (
         <div className="site-card-border-less-wrapper">
-            <Card title={isLogin ? 'Авторизация' : "Регистрация"} bordered={false} style={{ width: 600 }}>
+            <Card title={isLogin ? 'Авторизация' : "Регистрация"} bordered={false} style={{ width: '350px' }}>
                 <Form
                     name="basic"
                     labelCol={{
@@ -61,7 +61,7 @@ const Auth = observer(() => {
                         value={email}
                         onChange={e => setEmail(e.target.value)}
                     >
-                        <Input />
+                        <Input placeholder="email"/>
                     </Form.Item>
 
                     <Form.Item
@@ -76,7 +76,7 @@ const Auth = observer(() => {
                         value={password}
                         onChange={e => setPassword(e.target.value)}
                     >
-                        <Input.Password />
+                        <Input.Password placeholder="password"/>
                     </Form.Item>
 
                     <Form.Item
