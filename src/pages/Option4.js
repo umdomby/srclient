@@ -16,7 +16,7 @@ import WebSocketProject from "../components/WebSocketProject";
 
 
 const Option4 = observer(() => {
-    const {device} = useContext(Context)
+    const {device, user} = useContext(Context)
 
     const timerControlUp = useRef(null)
     const timerControlDown = useRef(null);
@@ -27,23 +27,23 @@ const Option4 = observer(() => {
 
     const controlUp = () => {
         timerControlUp.current = setTimeout(() => {
-            UpDown(device.webSocket, -1 + device.degreegoback/10, device.accel)
+            UpDown(device.webSocket, -1 + device.degreegoback/10, device.accel, user.user)
         }, device.delaycommand * 1000);
     }
     const controlDown = () => {
         timerControlDown.current = setTimeout(() => {
-            UpDown(device.webSocket, 1 - device.degreegoback/10, device.accel)
+            UpDown(device.webSocket, 1 - device.degreegoback/10, device.accel, user.user)
         }, device.delaycommand * 1000);
     }
     const controlLeft = () => {
         timerControlLeft.current = setTimeout(() => {
-            LeftRight(device.webSocket, -1 + device.degreeleftright/10, device.accel)
+            LeftRight(device.webSocket, -1 + device.degreeleftright/10, device.accel, user.user)
             //LeftRight(device.webSocket, -1 + device.speedLR/10, device.accel)
         }, device.delaycommand * 1000);
     }
     const controlRight = () => {
         timerControlRight.current = setTimeout(() => {
-            LeftRight(device.webSocket, 1 - device.degreeleftright/10, device.accel)
+            LeftRight(device.webSocket, 1 - device.degreeleftright/10, device.accel, user.user)
             //LeftRight(device.webSocket, 1 - device.speedLR/10, device.accel)
         }, device.delaycommand * 1000);
     }

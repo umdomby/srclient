@@ -1,8 +1,9 @@
 
 
-export const LeftRight = (webSocket, speedLR, accel) => {
+export const LeftRight = (webSocket, speedLR, accel, user) => {
     webSocket.send(JSON.stringify({
         id: '1',
+        username: user,
         method: 'messages',
         message: speedLR,
         accel: accel,
@@ -10,9 +11,10 @@ export const LeftRight = (webSocket, speedLR, accel) => {
     }))
 }
 
-export const UpDown = (webSocket, speedUD, accel) => {
+export const UpDown = (webSocket, speedUD, accel, user) => {
     webSocket.send(JSON.stringify({
         id: '1',
+        username: user,
         method: 'messages',
         message2: speedUD,
         accel: accel,
@@ -20,9 +22,10 @@ export const UpDown = (webSocket, speedUD, accel) => {
     }))
 }
 
-export const Stop = (webSocket, accel) => {
+export const Stop = (webSocket, accel, user) => {
     webSocket.send(JSON.stringify({
         id: '1',
+        username: user,
         method: 'messages',
         message: 0,
         message2: 0,
