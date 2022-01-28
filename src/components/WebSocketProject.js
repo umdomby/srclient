@@ -12,8 +12,8 @@ const WebSocketProject = () => {
 
     useEffect(()=>{
         if (device.webSocket.readyState === device.webSocket.CLOSED || device.webSocket.readyState === device.webSocket.CLOSING) {
-            wsConnect('user')
-            setInterval(() => socketTest('user'), 5000)
+            wsConnect(user.user)
+            setInterval(() => socketTest(user.user), 5000)
             //setTimeout(()=>{
                 console.log("11111111111111111 "+ 'user')
             //},3000)
